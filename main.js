@@ -103,6 +103,16 @@ scissors.onclick = () => {
 	winner('scissors');
 };
 
+window.addEventListener('keydown', e => {
+	if (e.key === '1') {
+		winner('rock');
+	} else if (e.key === '2') {
+		winner('paper');
+	} else if (e.key === '3') {
+		winner('scissors');
+	}
+});
+
 resetGame.onclick = () => {
 	(score.wins = 0), (score.lose = 0), (score.draws = 0);
 	scores.innerHTML = `Wins: ${score.wins}, Losses: ${score.lose}, Draws: ${score.draws}`;

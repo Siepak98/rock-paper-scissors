@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,18 +9,31 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  
+
   <p>Rock Paper Scissors</p>
-  <button id="rock" class="btn"><img src="img/rock-emoji.png" alt=""></button>
-  <button id="paper" class="btn"><img src="img/paper-emoji.png" alt=""></button>
-  <button id="scissors" class="btn"><img src="img/scissors-emoji.png" alt=""></button>
+  <div class="container">
+    <div class="rock">
+      <button id="rock" class="btn"><img src="img/rock-emoji.png" alt=""></button>
+      <p>Key 1</p>
+    </div>
+    <div class="paper">
+      <button id="paper" class="btn"><img src="img/paper-emoji.png" alt=""></button>
+      <p>Key 2</p>
+    </div>
+    <div class="scissors">
+      <button id="scissors" class="btn"><img src="img/scissors-emoji.png" alt=""></button>
+      <p>Key 3</p>
+    </div>
+  </div>
   <div id="result"></div>
   <div id="moves"></div>
   <div id="score"></div>
   <button id="reset-game">Reset Game</button>
-  
-  
+
+
   <script src="main.js"></script>
 </body>
+
 </html>

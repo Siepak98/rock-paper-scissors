@@ -58,3 +58,13 @@ p {
   margin-top: 25px;
   margin-left: 50px;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.container p {
+  margin-top: -15px;
+  font-size: 18px;
+}
