@@ -5,6 +5,11 @@ const resetGame = document.getElementById('reset-game');
 const scores = document.getElementById('score');
 const moves = document.getElementById('moves');
 const result = document.getElementById('result');
+const autoPlay = document.getElementById('auto-play');
+const oneHundredRock = document.getElementById('oneHundredRock');
+const scoreOneHundred = document.getElementById('scoreOneHundred');
+const oneHundredPaper = document.getElementById('oneHundredPaper');
+const oneHundredScissors = document.getElementById('oneHundredScissors');
 
 let score = JSON.parse(localStorage.getItem('score')) || {
 	wins: 0,
@@ -93,6 +98,19 @@ const winner = playerChoice => {
 	localStorage.setItem('score', JSON.stringify(score));
 };
 
+const playerRandom = () => {
+	const randomNumber = Math.random();
+
+	if (randomNumber >= 0 && randomNumber < 1 / 3) {
+		playerChoice = 'paper';
+	} else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+		playerChoice = 'scissors';
+	} else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+		playerChoice = 'rock';
+	}
+	return playerChoice;
+};
+
 rock.onclick = () => {
 	winner('rock');
 };
@@ -120,4 +138,37 @@ resetGame.onclick = () => {
 	moves.innerHTML = '';
 	localStorage.removeItem('score');
 	alert('Game reset successfully');
+};
+
+let interval;
+
+autoPlay.onclick = () => {
+	if (autoPlay.innerText === 'Auto Play') {
+		autoPlay.innerText = 'Stop Play';
+		interval = setInterval(() => {
+			winner(playerRandom());
+		}, 1000);
+	} else if (autoPlay.innerText === 'Stop Play') {
+		autoPlay.innerText = 'Auto Play';
+		clearInterval(interval);
+		// interval = null;
+	}
+};
+
+oneHundredRock.onclick = () => {
+	for (let i = 1; i <= 100; i++) {
+		winner('rock');
+	}
+};
+
+oneHundredPaper.onclick = () => {
+	for (let i = 1; i <= 100; i++) {
+		winner('paper');
+	}
+};
+
+oneHundredScissors.onclick = () => {
+	for (let i = 1; i <= 100; i++) {
+		winner('scissors');
+	}
 };

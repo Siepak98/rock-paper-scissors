@@ -41,7 +41,11 @@ p {
   margin-top: 25px;
 }
 
-#reset-game {
+#reset-game,
+#auto-play,
+#oneHundredRock,
+#oneHundredPaper,
+#oneHundredScissors {
   margin-top: 25px;
   padding: 10px;
   font-weight: bold;
@@ -50,7 +54,8 @@ p {
   transition: all .3s ease-in-out;
 }
 
-#reset-game:hover {
+#reset-game:hover,
+#auto-play:hover {
   opacity: 0.7;
 }
 
