@@ -10,6 +10,9 @@ const oneHundredRock = document.getElementById('oneHundredRock');
 const scoreOneHundred = document.getElementById('scoreOneHundred');
 const oneHundredPaper = document.getElementById('oneHundredPaper');
 const oneHundredScissors = document.getElementById('oneHundredScissors');
+const resetConfirmation = document.getElementById('confirmation-reset');
+const btnYes = document.querySelector('.btnYes');
+const btnNo = document.querySelector('.btnNo');
 
 let score = JSON.parse(localStorage.getItem('score')) || {
 	wins: 0,
@@ -111,15 +114,15 @@ const playerRandom = () => {
 	return playerChoice;
 };
 
-rock.onclick = () => {
+rock.addEventListener('click', () => {
 	winner('rock');
-};
-paper.onclick = () => {
+});
+paper.addEventListener('click', () => {
 	winner('paper');
-};
-scissors.onclick = () => {
+});
+scissors.addEventListener('click', () => {
 	winner('scissors');
-};
+});
 
 window.addEventListener('keydown', e => {
 	if (e.key === '1') {
@@ -128,21 +131,80 @@ window.addEventListener('keydown', e => {
 		winner('paper');
 	} else if (e.key === '3') {
 		winner('scissors');
+	} else if (e.key === 'a') {
+		autoPlayStart();
+	} else if (e.key === 'Backspace') {
+		resetConfirmationDiv();
 	}
 });
 
-resetGame.onclick = () => {
+resetGame.addEventListener('click', () => {
+	resetConfirmationDiv();
+});
+
+function resetGameFunc() {
 	(score.wins = 0), (score.lose = 0), (score.draws = 0);
 	scores.innerHTML = `Wins: ${score.wins}, Losses: ${score.lose}, Draws: ${score.draws}`;
 	result.innerHTML = '';
 	moves.innerHTML = '';
 	localStorage.removeItem('score');
 	alert('Game reset successfully');
-};
+}
+
+btnYes.addEventListener('click', () => {
+	resetConfirmationDiv('yes');
+});
+
+btnNo.addEventListener('click', () => {
+	resetConfirmationDiv('no');
+});
+
+function resetConfirmationDiv(value) {
+	// resetConfirmation.textContent = 'Are you sure you want to reset the score?';
+	// const btn1 = document.createElement('button');
+	// btn1.classList.add('btn1');
+	// btn1.classList.add('btn-reset');
+	// btn1.classList.add('button-margin');
+	// btn1.textContent = 'Yes';
+	// resetConfirmation.appendChild(btn1);
+	// const btn2 = document.createElement('button');
+	// btn2.classList.add('btn2');
+	// btn2.classList.add('btn-reset');
+	// btn2.classList.add('button-margin');
+	// btn2.textContent = 'No';
+	// resetConfirmation.appendChild(btn2);
+	// document.querySelector('btn1').addEventListener('click', () => {
+	// 	resetGameEnd('yes');
+	// });
+	// const btn2Selector = document.querySelector('btn2');
+	// btn2Selector.addEventListener('click', () => {
+	// 	resetGameEnd('no');
+	// });
+	resetConfirmation.classList.toggle('hidden');
+	if (value === 'yes') {
+		resetGameFunc();
+	} else if (value === 'no') {
+		alert("Let's play the game!");
+	}
+}
+
+// function resetGameEnd(value) {
+// 	console.log('hi');
+// 	if (value === 'yes') {
+// 		resetGameFunc();
+// 	} else if (value === 'no') {
+// 		alert("Let's play the game!");
+// 	}
+// }
 
 let interval;
 
-autoPlay.onclick = () => {
+autoPlay.addEventListener('click', () => {
+	autoPlayStart();
+});
+
+function autoPlayStart() {
+	winner(playerRandom());
 	if (autoPlay.innerText === 'Auto Play') {
 		autoPlay.innerText = 'Stop Play';
 		interval = setInterval(() => {
@@ -153,22 +215,22 @@ autoPlay.onclick = () => {
 		clearInterval(interval);
 		// interval = null;
 	}
-};
+}
 
-oneHundredRock.onclick = () => {
+oneHundredRock.addEventListener('click', () => {
 	for (let i = 1; i <= 100; i++) {
 		winner('rock');
 	}
-};
+});
 
-oneHundredPaper.onclick = () => {
+oneHundredPaper.addEventListener('click', () => {
 	for (let i = 1; i <= 100; i++) {
 		winner('paper');
 	}
-};
+});
 
-oneHundredScissors.onclick = () => {
+oneHundredScissors.addEventListener('click', () => {
 	for (let i = 1; i <= 100; i++) {
 		winner('scissors');
 	}
-};
+});

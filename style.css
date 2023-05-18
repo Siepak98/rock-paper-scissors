@@ -1,75 +1,95 @@
 body {
-  background-color: rgb(25, 25, 25);
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+	background-color: rgb(25, 25, 25);
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: center;
 }
 
 .btn {
-  background-color: rgb(25, 25, 25);
-  border: solid white 2px;
-  border-radius: 500px;
-  padding: 40px;
-  margin: 10px;
-  margin-bottom: 25px;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
+	background-color: rgb(25, 25, 25);
+	border: solid white 2px;
+	border-radius: 500px;
+	padding: 40px;
+	margin: 10px;
+	margin-bottom: 25px;
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
 }
 
 .btn:hover {
-  opacity: 0.7;
+	opacity: 0.7;
 }
 
 img {
-  height: 75px;
+	height: 75px;
 }
 
 p {
-  font-size: 35px;
-  font-weight: bold;
+	font-size: 35px;
+	font-weight: bold;
 }
 
 #result {
-  font-size: 25px;
-  font-weight: bold;
-  margin-top: 10px;
+	font-size: 25px;
+	font-weight: bold;
+	margin-top: 10px;
 }
 
 #score {
-  margin-top: 25px;
+	margin-top: 25px;
 }
 
 #reset-game,
 #auto-play,
 #oneHundredRock,
 #oneHundredPaper,
-#oneHundredScissors {
-  margin-top: 25px;
-  padding: 10px;
-  font-weight: bold;
-  border: solid 1px;
-  cursor: pointer;
-  transition: all .3s ease-in-out;
+#oneHundredScissors,
+.btn-reset,
+.btnYes,
+.btnNo {
+	margin-top: 15px;
+	/* margin-bottom: -55px; */
+	padding: 10px;
+	font-weight: bold;
+	border: solid 1px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
 }
 
 #reset-game:hover,
-#auto-play:hover {
-  opacity: 0.7;
+#auto-play:hover,
+#oneHundredRock:hover,
+#oneHundredPaper:hover,
+#oneHundredScissors:hover,
+.btn-reset:hover,
+.btnYes:hover,
+.btnNo:hover {
+	opacity: 0.7;
 }
 
 #moves {
-  margin-top: 25px;
-  margin-left: 50px;
+	margin-top: 25px;
+	margin-left: 50px;
 }
 
 .container {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .container p {
-  margin-top: -15px;
-  font-size: 18px;
+	margin-top: -15px;
+	font-size: 18px;
+}
+
+.btnYes,
+.btnNo {
+	margin-left: 10px;
+	/* margin-bottom: -55px; */
+}
+
+.hidden {
+	display: none;
 }
